@@ -1,0 +1,34 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+>
+<Dialog
+      id="createDialog"
+      title="Insert"
+      >
+        <f:SimpleForm 
+        layout="ResponsiveGridLayout"
+        >
+        <f:toolbar>
+            <Toolbar>
+                <Title text="Form"/>
+            </Toolbar>
+        </f:toolbar>
+        <f:content>
+            <Label text="ID Fornitore" />
+            <Input value="{FormModel>/SupplierID}" />
+            <Label text="Nome Compagnia" />
+            <Input value="{FormModel>/CompanyName}"/>
+            <Label text="Nome Contatto" />
+            <Input value="{FormModel>/ContactName}" />
+
+            <Button text="Add" press="addOnPress"/>
+            <Button text="Close" press="closeOnPress"/>
+        </f:content>
+    </f:SimpleForm>
+      
+   </Dialog>
+</c:FragmentDefinition>
