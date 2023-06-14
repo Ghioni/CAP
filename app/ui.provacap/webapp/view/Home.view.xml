@@ -17,30 +17,10 @@
 				<headerToolbar>
 			<OverflowToolbar>
 				<content>
-					<Title text="Products" level="H2"/>
+					<Title text="My table" level="H2"/>
 					<ToolbarSpacer />
-					<ComboBox id="idPopinLayout"
-						placeholder="Popin layout options"
-						change="onPopinLayoutChanged">
-						<items>
-							<core:Item  text="Block"
-								key="Block"/>
-							<core:Item  text="Grid Large"
-								key="GridLarge"/>
-							<core:Item  text="Grid Small"
-								key="GridSmall"/>
-						</items>
-					</ComboBox>
-					<Label text="Sticky options:" />
-					<CheckBox text="ColumnHeaders"
-						select="onSelect"/>
-					<CheckBox text="HeaderToolbar"
-						select="onSelect"/>
-					<CheckBox text="InfoToolbar"
-						select="onSelect"/>
-					<ToggleButton id="toggleInfoToolbar"
-						text="Hide/Show InfoToolbar"
-						press="onToggleInfoToolbar" />
+					<Label text="Create:" />
+					<Button text="add" press="onPressCreateDialog" icon="sap-icon://create-form"/>
 				</content>
 			</OverflowToolbar>
 		</headerToolbar>
@@ -73,7 +53,7 @@
 						text="{path: 'Prova>Name'}" />
 					<Text
 						text="{path: 'Prova>Date'}" />
-                    <Button press="onRiga" icon="sap-icon://edit"/>
+                    <Button press="onPressGetObj" icon="sap-icon://edit"/>
                     <Button press="onPressDelete" icon="sap-icon://delete"/>
 				</cells>
 			</ColumnListItem>

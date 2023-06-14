@@ -6,7 +6,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 >
 <Dialog
-      id="createDialog"
+      id="editDialog"
       title="Insert"
       >
         <f:SimpleForm 
@@ -19,14 +19,14 @@
         </f:toolbar>
         <f:content>
             <Label text="ID" />
-            <Input value="{formModel>/Id}" type="Number"/>
+            <Input value="{editForm>/Id}" />
             <Label text="Name" />
-            <Input value="{formModel>/Name}"/>
+            <Input value="{editForm>/Name}"/>
             <Label text="Date" />
-            <Input value="{formModel>/Date}" />
+            <Input value="{editForm>/Date}" />
 
-            <Button text="Add" press="onPressCreate"/>
-            <Button text="Close" press="closeOnPress"/>
+            <Button text="Edit" press="onPressEdit" icon="sap-icon://edit"/>
+            <Button text="Close" press="closeOnPressEdit"/>
         </f:content>
     </f:SimpleForm>
       
