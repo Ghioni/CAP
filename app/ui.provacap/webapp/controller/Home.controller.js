@@ -82,14 +82,46 @@ sap.ui.define([
             onPressCreate: function(){
                 let modelloDati = this.getOwnerComponent().getModel();
                 let oCreateForm = this.getView().getModel("formModel").getData();
-                console.log(oCreateForm)
-                modelloDati.create({
-                    "Id" : oCreateForm.Id,
-                    "Name" : oCreateForm.Name,
-                    "Date" : oCreateForm.Date               
-                })
+                const sKey = oCreateForm.Id;
+                const sName = oCreateForm.Name;
+                const sDate = oCreateForm.Date;
+
+                modelloDati.read("/DavidTabellaProva('" + sKey + "')",{
+                    success: (oCreateForm, response)=>{
+                        console.log(oCreateForm)
+                        new sap.m.MessageToast.show("Enter a non-existent ID")
+                    },
+                    error: (e)=>{
+                        console.log(e)
+                        const oNewInsert ={
+                            Id: parseInt(sKey),
+                            Name: sName,
+                            Date: sDate
+                        };
+
+                        modelloDati.create("/DavidTabellaProva", oNewInsert,{
+                            success: async (oCreateForm,response)=>{
+                                new sap.MessageToast.show("Insert success")
+                                let oData = new sap.ui.model.json.JSONModel();
+                                let aData = await this._getHanaData("/DavidTabellaProva");
+                                oData.setData(aData);
+                                this.getView().setModel(oData, "Prova");
+                            },
+                            error: async(e)=>{
+                                new sap.MessageToast.show("Error during saving")
+                            }
+                            
+                        });
+                    }
+                });
+                oEvent.getSource().oParent.close();
 
             },
+            RefreshDial: function (oEvent) {
+                this.getView().getModel("FormModel").setData({});
+                this.getView().getModel("FormModel").refresh();
+                debugger
+              },
             onPressEditDialog: function(){
                 if (!this.pDialog) {
                     this.pDialog = this.loadFragment({
