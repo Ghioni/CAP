@@ -19,7 +19,7 @@
         </f:toolbar>
         <f:content>
             <Label text="ID" />
-            <Input value="{editForm>/Id}" />
+            <Input value="{editForm>/Id}" editable="false"/>
             <Label text="Name" />
             <Input value="{editForm>/Name}"/>
 

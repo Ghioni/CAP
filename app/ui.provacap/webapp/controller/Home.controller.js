@@ -88,39 +88,33 @@ sap.ui.define(
       closeOnPress: function () {
         this.byId("createDialog").close();
       },
-      onPressCreate: function () {
+      onPressCreate: function (oEvent) {
         let modelloDati = this.getOwnerComponent().getModel();
         let oCreateForm = this.getView().getModel("formModel").getData();
         const sKey = oCreateForm.Id;
         const sName = oCreateForm.Name;
 
-        modelloDati.read("/DavidTabellaProva('" + sKey + "')", {
-          success: (oCreateForm, response) => {
-            console.log(oCreateForm);
-            // new sap.m.MessageToast.show("Enter a non-existent ID")
-          },
-          error: (e) => {
-            console.log(e);
             const oNewInsert = {
-              Id: parseInt(sKey),
-              Name: sName,
-            };
+                  Id: parseInt(sKey),
+                  Name: sName,
+                };
 
-            modelloDati.create("/DavidTabellaProva", oNewInsert, {
-              success: async (oCreateForm, response) => {
-                let oData = new sap.ui.model.json.JSONModel();
-                let aData = await this._getHanaData("/DavidTabellaProva");
-                oData.setData(aData);
-                this.getView().setModel(oData, "Prova");
-              },
-              error: async (e) => {
-                console.log(e);
-              },
-            });
-          },
-        });
+        modelloDati.create("/DavidTabellaProva", oNewInsert, {
+            success: async (oCreateForm, response) => {
+                MessageToast.show("New entry created")
+              let oData = new sap.ui.model.json.JSONModel();
+              let aData = await this._getHanaData("/DavidTabellaProva");
+              oData.setData(aData);
+              this.getView().setModel(oData, "Prova");
+            },
+            error: async (e) => {
+              console.log(e);
+              const msg = "Error in the creation. Enter a non-existent ID";
+            //   alert(msg);
+              MessageToast.show(msg);
+            },
+          })
 
-        oEvent.getSource().oParent.close();
       },
       onPressEditDialog: function () {
         if (!this.pDialog2) {
