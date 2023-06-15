@@ -33,10 +33,6 @@
 				>
 				<Text text="Name" />
 			</Column>
-			<Column
-				>
-				<Text text="Date" />
-			</Column>
             			<Column width="4rem"
 				>
                 			</Column>
@@ -51,8 +47,6 @@
 						text="{path: 'Prova>Id'}" />
 					<Text
 						text="{path: 'Prova>Name'}" />
-					<Text
-						text="{path: 'Prova>Date'}" />
                     <Button press="onPressGetObj" icon="sap-icon://edit"/>
                     <Button press="onPressDelete" icon="sap-icon://delete"/>
 				</cells>

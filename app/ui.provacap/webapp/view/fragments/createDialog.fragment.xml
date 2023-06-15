@@ -22,8 +22,7 @@
             <Input value="{formModel>/Id}" type="Number"/>
             <Label text="Name" />
             <Input value="{formModel>/Name}"/>
-            <Label text="Date" />
-            <Input value="{formModel>/Date}" />
+
 
             <Button text="Add" press="onPressCreate"/>
             <Button text="Close" press="closeOnPress"/>

@@ -22,8 +22,6 @@
             <Input value="{editForm>/Id}" />
             <Label text="Name" />
             <Input value="{editForm>/Name}"/>
-            <Label text="Date" />
-            <Input value="{editForm>/Date}" />
 
             <Button text="Edit" press="onPressEdit" icon="sap-icon://edit"/>
             <Button text="Close" press="closeOnPressEdit"/>
