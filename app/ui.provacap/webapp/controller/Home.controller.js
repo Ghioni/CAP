@@ -43,10 +43,10 @@ sap.ui.define(
       },
       onPressDelete: function (oEvent) {
         const oModel = this.getView().getModel();
-        let oLine = oEvent.getSource().getBindingContext("Prova").getObject();
+        const oLine = oEvent.getSource().getBindingContext("Prova").getObject();
         const sKey = oLine.Id;
         console.log(sKey);
-        let sPath = `/DavidTabellaProva(${sKey})`;
+        const sPath = `/DavidTabellaProva(${sKey})`;
 
         MessageBox.warning("Are you sure you want to delete?", {
           actions: [MessageBox.Action.OK, MessageBox.Action.CLOSE],
@@ -62,7 +62,7 @@ sap.ui.define(
                 },
                 error: async (e) => {
                   console.log(e);
-                  alert("Error in the deleting progress")
+                  MessageToast.show("Error in the deleting process")
                 },
               });
             }
@@ -83,8 +83,8 @@ sap.ui.define(
         this.byId("createDialog").close();
       },
       onPressCreate: function (oEvent) {
-        let modelloDati = this.getOwnerComponent().getModel();
-        let oCreateForm = this.getView().getModel("formModel").getData();
+        const modelloDati = this.getOwnerComponent().getModel();
+        const oCreateForm = this.getView().getModel("formModel").getData();
         const sKey = oCreateForm.Id;
         const sName = oCreateForm.Name;
 
@@ -149,7 +149,7 @@ sap.ui.define(
                 alert(e)
             }
         })
-        
+       
       },
     });
   }

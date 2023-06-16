@@ -5,14 +5,12 @@
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout">
 
-<l:Grid defaultSpan="L12 M7 S12" width="auto">
-		<l:content>
+
     <Table id="2"
 		inset="false"
 		items="{
 			path: 'Prova>/'
 		}"
-        width="80%"
         >
 				<headerToolbar>
 			<OverflowToolbar>
@@ -25,7 +23,7 @@
 			</OverflowToolbar>
 		</headerToolbar>
 		<columns>
-			<Column width="4rem"
+			<Column 
                 >
 				<Text text="ID" />
 			</Column>
@@ -53,6 +51,5 @@
 			</ColumnListItem>
 		</items>
 	</Table>
-		</l:content>
-	</l:Grid>
+
 </mvc:View>
